@@ -47,7 +47,7 @@ const iplTeams = [
 
 
 btn.addEventListener("click",()=>{
-    let num1 = Math.floor(Math.random()*9);
+    let num1 = Math.floor(Math.random()*8);
     name1.innerHTML = `${iplTeams[num1].name}`
     back.style.backgroundColor = `${iplTeams[num1].primaryColor}`
     box.style.backgroundColor = `${iplTeams[num1].secondaryColor}`
