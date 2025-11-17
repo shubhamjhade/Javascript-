@@ -1,0 +1,44 @@
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+html, body {
+height: 100%;
+width: 100%;
+}
+
+.background{
+    height: 100%;
+    width: 100%;
+    background-color: yellow;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+   gap: 1.5rem;
+}
+
+.box{
+    height: 16rem;
+    width: 16em;
+    background-color: blue;
+   border: 0.4rem solid black;
+   border-radius: 1.5rem;
+   padding: 3rem;
+}
+
+.name{
+    color: white;
+    font-size: xx-large;
+    font-weight: bolder;
+    font-family:cursive;
+}
+
+.btn{
+    background-color: black;
+    color: whitesmoke;
+    font-size:x-large;
+    padding :0.2rem;
+    border-radius: 1rem;
+}
