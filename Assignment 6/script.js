@@ -6,7 +6,6 @@ for (let i = 1; i <= 10; i++) {
     sounds.push(new Audio(`A${i}.mp3`));
 }
 
-
 boxes.forEach((box, index) => {
     box.addEventListener("click", () => {
         sounds[index].currentTime = 0;
@@ -21,4 +20,5 @@ document.addEventListener("keydown", (e) => {
         sounds[key].currentTime = 0;
         sounds[key].play();
     }
+    
 });
