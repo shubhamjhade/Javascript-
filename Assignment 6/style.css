@@ -1,0 +1,57 @@
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+html, body {
+height: 100%;
+width: 100%;
+}
+
+main{
+    height: 100%;
+    width: 100%;
+    background-color: rgb(187, 223, 134);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.piano{
+    height: 300px;
+    width: 500px;
+    background-color: rgb(219, 197, 109);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+}
+
+.div1, 
+.div2, 
+.div3, 
+.div4, 
+.div5, 
+.div6, 
+.div7, 
+.div8, 
+.div9,
+.div10 {
+    height: 200px;
+    width: 40px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+}
+
+[class^="div"]:active {
+    scale: 0.90;
+}
+
+div {
+    display: flex;
+    justify-content: flex-end;
+    align-items: end;
+    padding: 15px;
+}
+
