@@ -8,3 +8,76 @@ height: 100%;
 width: 100%;
 }
 
+.allreels{
+width: 100%;
+min-height: 100vh;
+background-color: black;
+ display: flex;
+ flex-direction: column;
+gap: 20px;
+ align-items: center;
+ justify-content: center;
+  padding: 20px;
+}
+
+.reel{
+    height: 500px;
+    width: 300px;
+    position: relative;
+}
+
+.reel video{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.right{
+position: absolute;
+display: flex;
+flex-direction: column;
+gap: 15px;
+left: 85%;
+top: 55%;
+color: white;
+align-items: center;
+}
+.right i{
+font-size: large;
+}
+.follow{
+position: absolute;
+left: 2%;
+top: 80%;
+display: flex;
+color: white;
+gap: 8px;
+align-items: center;
+}
+.follow img{
+    height: 40px;
+    width: 40px;
+    object-fit: cover;
+    border-radius: 50px;
+}
+
+.follow .btn{
+    background-color: transparent;
+    color: white;
+    padding: 5px 15px;
+    border: 1px solid white;
+    border-radius: 8px;
+}
+.bottom {
+    position: absolute;
+    left: 16px;
+    bottom: 25px;
+    color: white;
+
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.25;
+
+    max-width: 65%;      
+    padding-right: 10px;
+}
