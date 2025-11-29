@@ -81,3 +81,11 @@ align-items: center;
     max-width: 65%;      
     padding-right: 10px;
 }
+
+.mute{
+    position: absolute;
+    top: 10%;
+    right: 20%;
+    color: white;
+    font-size: x-large;
+}

@@ -48,20 +48,94 @@ const reels = [
 ];
 
 let allreels = document.querySelector(".allreels")
+let ismute = true;
 
-let sum = ''; 
-reels.forEach((ele)=>{
-    sum= sum+`
-    <div class="reel">
-    <video autoplay loop muted src="${ele.reelVideo}"></video>
-    <div class="right"> ${ele.isLiked 
-        ? `<i class="ri-heart-fill"></i>` 
-        : `<i class="ri-heart-line"></i>`}<p>${ele.likeCount}</p><i class="ri-chat-3-line"></i> <p>${ele.commentCount}</p><i class="ri-share-fill"></i><p>${ele.shareCount}</p></div>
-    <div class="follow"><img src="${ele.userPhoto}" alt=""><p>${ele.username}</p><button class="btn">follow</button></div>
-    <div class="bottom"><p>${ele.description}</p></div>
-    </div>
-    `
-})
+function add() {
+  let sum = ''; 
+  reels.forEach((ele, id) => {
+    sum += `
+      <div class="reel" data-id="${id}">
+        <video loop ${ismute ? "muted" : ""} autoplay src="${ele.reelVideo}"></video>
 
-allreels.innerHTML = sum
+        <div class="right">
+          <div class="like" data-id="${id}">
+            ${ele.isLiked 
+              ? `<i class="ri-heart-fill"></i>` 
+              : `<i class="ri-heart-line"></i>`}
+            <p>${ele.likeCount}</p>
+          </div>
 
+          <div class="comments">
+            <i class="ri-chat-3-line"></i>
+            <p>${ele.commentCount}</p>
+          </div>
+
+          <div class="share">
+            <i class="ri-share-fill"></i>
+            <p>${ele.shareCount}</p>
+          </div>
+        </div>
+
+        <div class="follow">
+          <img src="${ele.userPhoto}" alt="">
+          <p>${ele.username}</p>
+          <button class="btn">follow</button>
+        </div>
+
+        <div class="bottom">
+          <p>${ele.description}</p>
+        </div>
+
+        <div class="mute" data-id="${id}">
+          ${ismute 
+            ? `<i class="ri-volume-mute-line"></i>` 
+            : `<i class="ri-volume-up-line"></i>`}
+        </div>
+
+      </div>
+    `;
+  });
+
+  allreels.innerHTML = sum;
+}
+
+
+
+allreels.addEventListener("click", (event) => {
+
+ 
+  const likeBox = event.target.closest(".like");
+  if (likeBox) {
+    const id = likeBox.dataset.id;
+    const reel = reels[id];
+
+    reel.isLiked = !reel.isLiked;
+    reel.likeCount += reel.isLiked ? 1 : -1;
+
+    likeBox.innerHTML = `
+      ${reel.isLiked ? `<i class="ri-heart-fill"></i>` : `<i class="ri-heart-line"></i>`}
+      <p>${reel.likeCount}</p>
+    `;
+    return;
+  }
+
+ 
+  const muteBtn = event.target.closest(".mute");
+  if (muteBtn) {
+    const reelDiv = muteBtn.closest(".reel");
+    const video = reelDiv.querySelector("video");
+
+    ismute = !ismute;
+    video.muted = ismute;
+
+    muteBtn.innerHTML = ismute
+      ? `<i class="ri-volume-mute-line"></i>`
+      : `<i class="ri-volume-up-line"></i>`;
+
+    return;
+  }
+
+});
+
+
+add()
