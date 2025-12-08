@@ -1,10 +1,54 @@
 * {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
-}
-html, body {
-height: 100%;
-width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  gap: 0;
+  anchor-name: --my-anchor;
+}
+
+.box {
+  height: 60px;
+  width: 200px;
+  background-color: gray;
+
+    border-radius: 10px;
+  z-index: 2;
+  position: relative;
+  transition: background-color 0.2s;
+}
+
+.box:hover {
+  anchor-name: --my-anchor;
+  background-color: transparent; 
+  cursor: pointer;
+  border-color: white;
+}
+
+.anchor {
+  background-color: rgb(202, 55, 55);
+  border-radius: 10px;
+  position: absolute;
+  pointer-events: none;
+
+  z-index: 1;
+
+  position-anchor: --my-anchor;
+  transition: all 0.4s ease;
+
+  top: anchor(top);
+  left: anchor(left);
+  right: anchor(right);
+  bottom: anchor(bottom);
+}
